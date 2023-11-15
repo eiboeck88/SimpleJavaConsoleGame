@@ -19,10 +19,14 @@ public class Entety {
         }
 
         this.healthPool -= damageTaken;
+
         if(this.healthPool <= 0){
             this.isDead = true;
+            System.out.println(this.name + " has died");
+            return;
         }
-        System.out.println(healthPool + " health left");
+
+        System.out.println(this.name + " has " + this.healthPool + " health left");
     }
 
     public void healing(int healingRecived) {

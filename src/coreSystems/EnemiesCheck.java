@@ -13,22 +13,29 @@ public class EnemiesCheck {
             System.out.println("(" + enemieIterator + ") " + currentEnemie.name + " health: " + currentEnemie.healthPool + " attack power: " + currentEnemie.attack);
         }
     }
-    public Entety getEnemie(int index){
+
+    public Entety getEnemie(int index) {
         return spawnedEnemies.get(index);
     }
-    public void addEnemies(Entety toAdd){
+    public int getNumberOfEnemies(){
+        return spawnedEnemies.size();
+    }
+
+    public void addEnemies(Entety toAdd) {
         this.spawnedEnemies.add(toAdd);
     }
-    public void addMultipleEnemies(Entety[] toAdd){
-        for(int entetyIterator = 0; entetyIterator < toAdd.length; entetyIterator++){
+
+    public void addMultipleEnemies(Entety[] toAdd) {
+        for (int entetyIterator = 0; entetyIterator < toAdd.length; entetyIterator++) {
             spawnedEnemies.add(toAdd[entetyIterator]);
         }
     }
-    public void removeDeadEnteties(){
-        for (int entetieIterator = 0; entetieIterator < spawnedEnemies.size(); entetieIterator++){
+
+    public void removeDeadEnteties() {
+        for (int entetieIterator = 0; entetieIterator < spawnedEnemies.size(); entetieIterator++) {
             Entety currentEntety = spawnedEnemies.get(entetieIterator);
 
-            if (currentEntety.isDead){
+            if (currentEntety.isDead) {
                 spawnedEnemies.remove(entetieIterator);
             }
         }

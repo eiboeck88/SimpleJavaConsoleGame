@@ -18,10 +18,11 @@ public class Player extends Entety{
             return;
         }
         Item equipped = this.inventory.get(itemIndex);
-        toAttack.takeDamage(attack + equipped.useItem());
 
         System.out.println(this.name + " attacks " + toAttack.name + " with " + equipped.itemName);
-        System.out.println(toAttack.name + " has " + toAttack.healthPool + " health left");
+
+        toAttack.takeDamage(attack + equipped.useItem());
+
     }
     public void addItem(Item toAddToInventory){
         this.inventory.add(toAddToInventory);
@@ -34,5 +35,20 @@ public class Player extends Entety{
 
             System.out.println("(" + itemIterator + ") ItemName = " + currentItem.itemName + ", ItemDurability = " + currentItem.durability + ", itemAttackDamage = " + currentItem.attackDamage);
         }
+    }
+    public Item getItemAtIndex(int index){
+        if(index < this.inventory.size()){
+            return this.inventory.get(index);
+        }
+        return null;
+    }
+    public String getItemNameAtIndex(int index){
+        if(index < this.inventory.size()){
+            return this.inventory.get(index).getItemName();
+        }
+        return "no Item found";
+    }
+    public String getPlayerName(){
+        return this.name;
     }
 }

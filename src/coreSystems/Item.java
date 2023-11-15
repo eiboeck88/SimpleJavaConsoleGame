@@ -18,6 +18,10 @@ public class Item {
             System.out.println(this.itemName + " is broken repair it");
             return 0;
         }
+        this.durability--;
         return this.attackDamage;
+    }
+    public String getItemName(){
+        return this.itemName;
     }
 }
