@@ -19,6 +19,7 @@ public class Player extends Entety{
         }
         Item equipped = this.inventory.get(itemIndex);
         toAttack.takeDamage(attack + equipped.useItem());
+
         System.out.println(this.name + " attacks " + toAttack.name + " with " + equipped.itemName);
         System.out.println(toAttack.name + " has " + toAttack.healthPool + " health left");
     }
@@ -26,12 +27,12 @@ public class Player extends Entety{
         this.inventory.add(toAddToInventory);
     }
     public void listInventory(){
-        System.out.println(this.name + "' Inventory: ");
+        System.out.println(this.name + "'s Inventory: ");
+
         for(int itemIterator = 0; itemIterator < this.inventory.size(); itemIterator++){
             Item currentItem = this.inventory.get(itemIterator);
 
             System.out.println("(" + itemIterator + ") ItemName = " + currentItem.itemName + ", ItemDurability = " + currentItem.durability + ", itemAttackDamage = " + currentItem.attackDamage);
         }
     }
-
 }

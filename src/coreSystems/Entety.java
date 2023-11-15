@@ -13,15 +13,15 @@ public class Entety {
     }
 
     public void takeDamage(int damageTaken) {
-        if(this.healthPool <= 0){
-            this.isDead = true;
-        }
         if (this.isDead) {
             System.out.println(this.name + " is dead");
             return;
         }
 
         this.healthPool -= damageTaken;
+        if(this.healthPool <= 0){
+            this.isDead = true;
+        }
         System.out.println(healthPool + " health left");
     }
 
@@ -39,6 +39,6 @@ public class Entety {
             return;
         }
         toAttack.takeDamage(attack);
-        System.out.println(this.name + " attacks : " + toAttack.name + " with " + attack + " damage");
+        System.out.println(this.name + " attacks : " + toAttack.name + " with " + attack + " damage | " + toAttack.name + " has " + toAttack.healthPool + " health left");
     }
 }
